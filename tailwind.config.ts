@@ -7,7 +7,20 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-
+    extend: {
+      padding: {
+        "18": "4.5rem"
+      }
+    },
+    colors: {
+      white: "#ffffff",
+      lightgray: "#b1b1b1",
+      slategray: "#6f6f6f",
+      darkgray: "#1e1e1e",
+      darkergray: "#191919",
+      blackish: "#151515",
+      black: "#000000"
+    }
   },
   plugins: [],
 }
