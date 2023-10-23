@@ -28,11 +28,11 @@ function Messages() {
 
   return (
     loading ? (
-      <main className="w-screen h-screen flex justify-center items-center">
+      <main className="flex flex-1 justify-center items-center">
         <p className="text-lightgray">Loading ...</p>
       </main>
     ) : (
-      <main className="flex flex-col-reverse w-screen h-screen overflow-y-auto custom-scrollbar pt-18 pb-18">
+      <main className="flex flex-col-reverse overflow-y-auto custom-scrollbar flex-1 pt-2 pb-2">
         {messages.map((data: DocumentData) => <Message content={data.content} displayName={data.displayName} msgId={data.msgId} photoURL={data.photoURL} timestamp={getTimestamp(data.timestamp, false)} uId={data.uId} key={data.msgId} />)}
       </main>
     )

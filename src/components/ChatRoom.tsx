@@ -6,7 +6,7 @@ import MessageInput from "./MessageInput";
 
 function ChatRoom() {
   return (
-    <main>
+    <main className="flex flex-col h-screen w-screen">
       <Header />
       <Messages />
       <MessageInput />

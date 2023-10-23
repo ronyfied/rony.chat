@@ -6,7 +6,7 @@ function Header() {
   const [user] = useAuthState(auth);
 
   return (
-    <main className="flex w-full h-16 bg-darkgray fixed justify-between items-center pl-6 pr-6">
+    <main className="flex w-full h-16 bg-darkgray justify-between items-center pl-6 pr-6">
       <h1>21 Online</h1>
       {user ? (
         <main data-tooltip-content="Sign out of your account" data-tooltip-id="sign-out" data-tooltip-delay-show={1500}>

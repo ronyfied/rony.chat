@@ -26,7 +26,7 @@ function MessageInput() {
   }
 
   return (
-    <form onSubmit={sendMessage} className="w-full absolute bottom-0">
+    <form onSubmit={sendMessage} className="w-full">
       {user ? (
         <main className="w-full flex">
           <input className="w-full h-16 bg-darkgray pl-6 focus:outline-none placeholder:text-lightgray" placeholder="Say something nice" type="text" value={message} onChange={(change) => setMessage(change.target.value)} />
