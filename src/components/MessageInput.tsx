@@ -4,19 +4,20 @@ import Send from "./Send";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { addDoc, serverTimestamp } from "firebase/firestore";
 import { auth, signIn, messagesRef } from "@/config/firebase";
+import { useContext } from "@/context/MessageInputContext";
 
 function MessageInput() {
   const [user] = useAuthState(auth);
-  const [message, setMessage] = React.useState("");
+  const { messageInputValue, updateMessageInputValue } = useContext();
 
   const sendMessage = async (event: React.FormEvent) => {
     event.preventDefault();
     
-    if (message === "") return;
-    setMessage("");
+    if (messageInputValue === "") return;
+    updateMessageInputValue("");
 
     await addDoc(messagesRef, {
-      content: message,
+      content: messageInputValue,
       createdAt: serverTimestamp(),
       timestamp: `${new Date()}`,
       displayName: auth.currentUser?.displayName,
@@ -29,7 +30,7 @@ function MessageInput() {
     <form onSubmit={sendMessage} className="w-full">
       {user ? (
         <main className="w-full flex">
-          <input className="w-full h-16 bg-darkgray pl-6 focus:outline-none placeholder:text-lightgray" placeholder="Say something nice" type="text" value={message} onChange={(change) => setMessage(change.target.value)} />
+          <input className="w-full h-16 bg-darkgray pl-6 focus:outline-none placeholder:text-lightgray" placeholder="Say something nice" type="text" value={messageInputValue} onChange={(change) => updateMessageInputValue(change.target.value)} />
           <Send />
         </main>
       ) : (
