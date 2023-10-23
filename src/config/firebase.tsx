@@ -3,14 +3,14 @@ import { collection, getFirestore } from "firebase/firestore";
 import { getAuth, signInWithRedirect, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBjV2h_kDL3f7U3ksh0oVEysd_Ty2ML5ZE",
-  authDomain: "ronychat.firebaseapp.com",
-  projectId: "ronychat",
-  storageBucket: "ronychat.appspot.com",
-  messagingSenderId: "80789566769",
-  appId: "1:80789566769:web:8ab146f5b921089ee62c10",
-  measurementId: "G-407L2GZD9E"
-};
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+}
 
 const app = initializeApp(firebaseConfig);
 
