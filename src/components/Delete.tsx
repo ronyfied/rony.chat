@@ -2,20 +2,16 @@ import { Tooltip } from "react-tooltip";
 import { messagesRef } from "@/config/firebase";
 import { doc, deleteDoc } from "firebase/firestore";
 
-interface Props {
-  msgId: string
-}
-
-function Delete({ msgId }: Props) {
+function Delete({ msgId }: { msgId: string }) {
   const deleteMessage = async () => {
     await deleteDoc(doc(messagesRef, msgId));
   }
 
   return (
     <main className="cursor-pointer" onClick={deleteMessage} data-tooltip-content="Delete this message" data-tooltip-id="delete" data-tooltip-delay-show={1500}>
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16.5714 3.5687V0H7.42857V3.5687H0V7.13865H24V3.5687H16.5714Z" fill="#F53636"/>
-        <path d="M2.66667 8.40162V21.4735C2.66667 22.8656 3.86267 24 5.33334 24H18.6667C20.1373 24 21.3333 22.8656 21.3333 21.4735V8.40162H2.66667ZM10.0952 19.47H6.33541V11.8906H10.0952V19.47ZM17.6646 19.47H13.9048V11.8906H17.6646V19.47Z" fill="#F53636"/>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.8095 2.97391V0H6.19048V2.97391H0V5.94888H20V2.97391H13.8095Z" fill="#F53636"/>
+        <path d="M2.22223 7.00135V17.8946C2.22223 19.0547 3.21889 20 4.44445 20H15.5556C16.7811 20 17.7778 19.0547 17.7778 17.8946V7.00135H2.22223ZM8.4127 16.225H5.27951V9.90883H8.4127V16.225ZM14.7205 16.225H11.5873V9.90883H14.7205V16.225Z" fill="#F53636"/>
       </svg>
       <Tooltip id="delete" />
     </main>
