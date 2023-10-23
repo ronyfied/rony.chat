@@ -26,8 +26,8 @@ function Message({ content, displayName, msgId, photoURL, timestamp, uId }: Prop
         </div>
       </div>
       <div className="flex gap-4 invisible group-hover:visible">
-        <Reply displayName={displayName} />
-        {auth.currentUser?.uid === uId ? (
+        {auth.currentUser ? <Reply displayName={displayName} /> : null}
+        {auth.currentUser && auth.currentUser?.uid === uId ? (
           <Delete msgId={msgId} />
         ) : (
           null
