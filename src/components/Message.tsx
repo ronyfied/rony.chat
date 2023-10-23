@@ -14,8 +14,8 @@ interface Props {
 
 function Message({ content, displayName, msgId, photoURL, timestamp, uId }: Props) {
   return (
-    <main className="group w-full flex justify-between items-center pt-3 pr-6 pb-3 pl-6 hover:bg-darkergray">
-      <div className="flex gap-3">
+    <main className={`group w-full flex justify-between items-center pt-3 pr-4 pb-3 pl-4 ${content.includes(`@${auth.currentUser?.displayName}`) ? "bg-brown hover:bg-lightbrown" : "hover:bg-darkergray"}`}>
+      <div className="flex gap-4">
         <img className="w-10 h-10 rounded-full cursor-pointer" src={photoURL} alt="Profile Picture" />
         <div className="flex flex-col gap-1">
           <div className="flex gap-2 items-center">
@@ -26,7 +26,7 @@ function Message({ content, displayName, msgId, photoURL, timestamp, uId }: Prop
         </div>
       </div>
       <div className="flex gap-4 invisible group-hover:visible">
-        <Reply />
+        <Reply displayName={displayName} />
         {auth.currentUser?.uid === uId ? (
           <Delete msgId={msgId} />
         ) : (
