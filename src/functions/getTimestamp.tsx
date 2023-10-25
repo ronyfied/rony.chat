@@ -26,7 +26,7 @@ function getTimestamp(timestamp: string, use24hrFormat: boolean) {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
-    return `${month}/${day}/${year} ${formatTime(hours, minutes)}`;
+    return `${month}/${day}/${year.toString().slice(2, 4)} ${formatTime(hours, minutes)}`;
   }
 }
 
