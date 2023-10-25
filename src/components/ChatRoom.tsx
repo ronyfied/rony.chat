@@ -8,13 +8,13 @@ import { ContextProvider } from "@/context/MessageInputContext";
 
 function ChatRoom() {
   return (
-    <main className="flex flex-col h-screen w-screen">
-      <Header />
-      <ContextProvider>
+    <ContextProvider>
+      <main className="flex flex-col h-screen w-screen">
+        <Header />
         <Messages />
         <MessageInput />
-      </ContextProvider>
-    </main>
+      </main>
+    </ContextProvider>
   )
 }
 
