@@ -25,7 +25,7 @@ function useContext(): ContextType {
   const context = React.useContext(messageInputContext);
 
   if (context === undefined) {
-    throw new Error("useContext() must be used within a provider.");
+    throw new Error("useContext() must be used within a provider");
   } else {
     return context;
   }
